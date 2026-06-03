@@ -43,8 +43,6 @@ car.display_details()
 print("Number of Seats:", car.num_seats)
 print("Rental Charge:", calculate_rental(car))
 
-print()
-
 print("Bike Details")
 bike.display_details()
 print("Bike Type:", bike.bike_type)
