@@ -1,49 +1,57 @@
-class Vehicle:
-    def __init__(self, vehicle_id, base_rate):
-        self._vehicle_id = vehicle_id
-        self._base_rate = base_rate
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-    def display_details(self):
-        print("Vehicle ID:", self._vehicle_id)
-        print("Base Rate:", self._base_rate)
+    def show_details(self):
+        print("Person Details")
+        print("Name:", self.name)
+        print("Age:", self.age)
 
-    def rental_charge(self):
-        return 0.0
+class Employee(Person):
+    def __init__(self, name, age, employee_id):
+        Person.__init__(self, name, age)
+        self.employee_id = employee_id
 
+    def show_details(self):
+        print("Employee Details")
+        print("Name:", self.name)
+        print("Age:", self.age)
+        print("Employee ID:", self.employee_id)
 
-class Car(Vehicle):
-    def __init__(self, vehicle_id, base_rate, num_seats):
-        self._vehicle_id = vehicle_id
-        self._base_rate = base_rate
-        self.num_seats = num_seats
+class PartTime(Person):
+    def __init__(self, name, age, working_hours):
+        Person.__init__(self, name, age)
+        self.working_hours = working_hours
 
-    def rental_charge(self):
-        return self._base_rate * self.num_seats
+    def show_details(self):
+        print("Part-Time Worker Details")
+        print("Name:", self.name)
+        print("Age:", self.age)
+        print("Working Hours:", self.working_hours)
 
+class Consultant(Employee, PartTime):
+    def __init__(self, name, age, employee_id, working_hours, project_name):
+        Employee.__init__(self, name, age, employee_id)
+        self.working_hours = working_hours
+        self.project_name = project_name
 
-car = Car("CAR001", 100.0, 4)
+    def show_details(self):
+        print("Consultant Details")
+        print("Name:", self.name)
+        print("Age:", self.age)
+        print("Employee ID:", self.employee_id)
+        print("Working Hours:", self.working_hours)
+        print("Project Name:", self.project_name)
 
-class Bike(Vehicle):
-    def __init__(self, vehicle_id, base_rate, bike_type):
-        self._vehicle_id = vehicle_id
-        self._base_rate = base_rate
-        self.bike_type = bike_type
+person1 = Person("Rahul", 25)
+person1.show_details()
 
-    def rental_charge(self):
-        return self._base_rate * 0.5
+employee1 = Employee("Anjali", 30, "EMP101")
+employee1.show_details()
 
+parttime1 = PartTime("Vikram", 22, 5.5)
+parttime1.show_details()
 
-def calculate_rental(vehicle):
-    return vehicle.rental_charge()
-
-bike = Bike("BIKE001", 100.0, "Scooter")
-
-print("Car Details")
-car.display_details()
-print("Number of Seats:", car.num_seats)
-print("Rental Charge:", calculate_rental(car))
-
-print("Bike Details")
-bike.display_details()
-print("Bike Type:", bike.bike_type)
-print("Rental Charge:", calculate_rental(bike))
+consultant1 = Consultant("Sneha", 35, "CONS201", 6.0, "Website Development")
+consultant1.show_details()
