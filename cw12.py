@@ -4,7 +4,7 @@ try:
     title = input("Enter book title: ")
     year = input("Enter publication year: ")
 
-    if re.fullmatch(r"[A-Za-z ]+", title):
+    if re.fullmatch("[A-Za-z ]+", title):
         print("Valid book title")
     else:
         raise ValueError("Book title should contain only alphabets and spaces.")
