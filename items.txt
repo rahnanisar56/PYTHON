@@ -4,3 +4,4 @@ car
 phone
 fan
 laptop
+fan
