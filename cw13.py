@@ -1,11 +1,12 @@
 import os
 name= input("Enter the name of the new item:")
-if not os.path.exists("items.txt"):
-    f=open("items.txt","w")
+if os.path.exists("items.txt"):
+    f=open("items.txt","a")
     f.write(name+"\n")
     f.close()
+    
 else:
-    f=open("items.txt","a")
+    f=open("items.txt","w")
     f.write(name+"\n")
     f.close()
     
